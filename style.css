@@ -48,6 +48,14 @@ body {
 	padding-left: 20px;
 	position: relative;
 	top: -2px;
+	color: white;
+}
+
+.header__nav__cart > div {
+	padding-left: 20px;
+	position: relative;
+	top: -2px;
+	color: white;
 }
 
 .header__nav__cart > a::before {
@@ -74,6 +82,21 @@ body {
 }
 
 .header__nav__cart a {
+	font-size: 17.5px;
+}
+
+.header__nav div {
+	color: white;
+	text-decoration: none;
+}
+
+.header__nav div:hover {
+	color: yellow;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.header__nav__cart div {
 	font-size: 17.5px;
 }
 
@@ -127,4 +150,142 @@ body {
 	background-color: yellow;
 	padding: 10px 0px;
 	font-weight: bold;
+}
+
+.main {
+	display: flex;
+}
+
+.login__container {
+	display: none;
+	position: relative;
+	box-sizing: border-box;
+	margin: auto;
+	margin-top: 20px;
+	background-color: white;
+	width: 400px;
+	height: 300px;
+	padding: 30px 40px;
+	z-index: 1;
+	border-radius: 5px;
+	border:1px solid hsl(210 15% 83% / 1);
+	box-shadow:1px 1px 3px #92828291;
+}
+
+.login__container__form div:nth-child(1) {
+	font-weight: bold;
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+
+.login__container__form div:nth-child(2n) {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.login__container__form input:nth-child(5) {
+	margin-bottom: 10px;
+}
+
+.sign_in_btn {
+	margin-top: 15px;
+	background-color: #1a7f37;
+	border: 1px solid white;
+	border-radius: 3px;
+	padding: 10px 50px;
+	color: white;
+	font-weight: bold;
+}
+
+.sign_in_btn:hover {
+	cursor: pointer;
+	color: yellow;
+}
+
+.register_link {
+	margin-left: 15px;
+	font-size: 16px;
+	color: green;
+}
+
+.forgotten_link {
+	margin-left: 15px;
+	font-size: 16px;
+	color: green;
+}
+
+
+.closebutton {
+	position: absolute;
+	box-sizing: border-box;
+	top: 5px;
+	right: 5px;
+	padding-top: 5px;
+	padding-left: 7px;
+	padding-right: 7px;
+	padding-bottom: 3px;
+	border-radius: 50%;
+	transition: 0.3s;
+}
+
+.closebutton:hover {
+	cursor: pointer;
+	background-color: #8282828a;
+}
+
+.appear {
+	display: inline-block;
+}
+
+.register__container {
+	z-index: 1;
+	background-color: white;
+	display: inline-block;
+	box-sizing: border-box;
+	margin: auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	width: 700px;
+	height: 450px;
+	border-radius: 15px;
+	padding: 30px;
+}
+
+.register__container h1 {
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+.register__container div {
+	margin-left: 20px;
+}
+
+.register__container div > input {
+	border: 2px solid #c2dffb;
+	padding: 5px;	
+	margin-top: 20px;
+}
+
+.register__container__form div::after {
+  content: "*";
+  color: red;
+  font-size: 16px;
+}
+
+.register_btn {
+	margin-top: 30px;
+	margin-left: 40px;
+	background-color: #1a7f37;
+	border: 1px solid white;
+	border-radius: 3px;
+	padding: 10px 100px;
+	color: white;
+	font-weight: bold;
+}
+
+.register_btn:hover {
+	color: yellow;
+	font-weight: bold;
+	cursor: pointer;
 }

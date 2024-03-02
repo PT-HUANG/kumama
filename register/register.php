@@ -1,4 +1,4 @@
-<?php require_once('./conn.php');?>
+<?php require_once('../conn.php');?>
 
 <!DOCTYPE HTML>
 <html>
@@ -6,8 +6,8 @@
     <meta charset="utf-8" />
     <meta name="description" content="有機蘆筍 有機洋蔥" >
     <title>酷媽媽安心農場</title>
-    <link rel="shortcut icon" href="./img/icon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="../img/icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
   </head>
   <body>
     <header class="header">
@@ -16,7 +16,9 @@
           <div class= description>酷媽媽安心農場 有機蘆筍 | 有機洋蔥 | 農家自產自銷</div>
           <ul class="header__nav" >
             <li class="header__nav__member">
-              <div>登入 / 註冊</div>
+              <a href="../index.php">
+                <div>回首頁</div>
+              </a>
             </li>
             <li class="header__nav__cart">
               <a href="./cart.php">購物車</a>
@@ -25,8 +27,8 @@
           </div>
         <nav class="nav__bar">
           <div class="logo">
-            <a href="./index.php" title="回首頁" alt="酷媽媽安心農場">
-              <img src="./img/logo.png" />
+            <a href="../index.php" title="回首頁" alt="酷媽媽安心農場">
+              <img src="../img/logo.png" />
             </a>
           </div>
           <ul class="nav__bar__list">
@@ -50,35 +52,26 @@
       </div>
     </header>
     <main class="main">
-      <div class="login__container">
-        <div class="closebutton">
-          <img src="./img/x.ico" />
-        </div>
-        <form class="login__container__form" action="handle_login_php">  
-          <div>登入</div> 
-          <div>帳號</div>
-          <input type="text" />
-          <div>密碼</div>
-          <input type="password" /><br>
-          <input type="submit" value="登入" class="sign_in_btn" />
-          <a class="register_link" href="./register/register.php">註冊帳號</a>
-          <a class="forgotten_link" href="forgotten.php">忘記密碼</a>
+      <div class="register__container">
+        <h1>會員註冊</h1>
+        <form class="register__container__form" method="POST" action="./handle_register.php">
+          <div>
+            暱稱: <input type="text" name="nickname" placeholder="請輸入您的暱稱..." />
+          </div>
+          <div>
+            帳號: <input type="text" name="username" placeholder="請輸入您的帳號..." />
+          </div>
+          <div>
+            密碼: <input type="passwword" name="passwword" placeholder="請輸入您的密碼..." />
+          </div>
+          <div>
+            Email: <input type="email" name="adress" placeholder="請輸入您的電子郵件..." />
+          </div>
+          <button type="submit" class="register_btn">送出</button>
         </form>
       </div>
     </main>
   </body>
   <script>
-    const openbutton = document.querySelector('.header__nav__member > div');
-    openbutton.addEventListener('click', show);
-    function show() {
-      element1 = document.querySelector('.login__container');
-      element1.classList.toggle('appear');
-    }
-    const closebutton = document.querySelector('.closebutton');
-    closebutton.addEventListener('click', disappear);
-    function disappear() {
-      element2 = document.querySelector('.login__container');
-      element2.classList.toggle('appear');
-    }
   </script>
 </html>
