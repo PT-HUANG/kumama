@@ -53,7 +53,17 @@
     </header>
     <main class="main">
       <div class="register__container">
-        <h1>會員註冊</h1>
+        <span class="register__container__title">會員註冊</span>
+        <?php 
+          if (!empty($_GET['err_code'])){
+            $code = $_GET['err_code'];
+            if ($code === '1'){
+              echo '<span class="errcode">錯誤:資料不齊全</span>';
+            }elseif ($code === '2') {
+              echo '<span class="errcode">錯誤:註冊資料重複</span>';
+            }
+          }
+        ?>
         <form class="register__container__form" method="POST" action="./handle_register.php">
           <div>
             暱稱: <input type="text" name="nickname" placeholder="請輸入您的暱稱..." />
@@ -62,7 +72,7 @@
             帳號: <input type="text" name="username" placeholder="請輸入您的帳號..." />
           </div>
           <div>
-            密碼: <input type="passwword" name="passwword" placeholder="請輸入您的密碼..." />
+            密碼: <input type="password" name="password" placeholder="請輸入您的密碼..." />
           </div>
           <div>
             Email: <input type="email" name="adress" placeholder="請輸入您的電子郵件..." />

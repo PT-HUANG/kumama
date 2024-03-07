@@ -1,4 +1,14 @@
-<?php require_once('./conn.php');?>
+<?php 
+require_once('./conn.php');
+require_once('./utils.php');
+session_start();
+if (!empty($_SESSION['username'])){
+  $username = $_SESSION['username'];
+  $row = GetNicknameFromUsername($username);
+  $nickname = $row['nickname'];
+}
+
+?>
 
 <!DOCTYPE HTML>
 <html>
@@ -15,9 +25,18 @@
         <div class="header__top__inner">
           <div class= description>酷媽媽安心農場 有機蘆筍 | 有機洋蔥 | 農家自產自銷</div>
           <ul class="header__nav" >
-            <li class="header__nav__member">
-              <div>登入 / 註冊</div>
-            </li>
+              <?php if (!empty($_SESSION['username'])){ ?>
+              <li class="welcome">
+                <span><?php echo "您好，$nickname"?></span>
+              </li>
+              <li class="header__nav__member">
+                <a href="./logout/logout.php">登出</a>
+              </li>
+            <?php }else { ?>
+              <li class="header__nav__member">
+                <div>登入 / 註冊</div>
+              </li>
+            <?php } ?>
             <li class="header__nav__cart">
               <a href="./cart.php">購物車</a>
             </li>
@@ -54,12 +73,14 @@
         <div class="closebutton">
           <img src="./img/x.ico" />
         </div>
-        <form class="login__container__form" action="handle_login_php">  
+        <div class="errcode__1">錯誤：資料不齊全</div>
+        <div class="errcode__2">錯誤：帳號或密碼有誤</div>
+        <form class="login__container__form" method="POST" action="./login/handle_login.php">  
           <div>登入</div> 
           <div>帳號</div>
-          <input type="text" />
+          <input type="text" name="username"/>
           <div>密碼</div>
-          <input type="password" /><br>
+          <input type="password" name="password"/><br>
           <input type="submit" value="登入" class="sign_in_btn" />
           <a class="register_link" href="./register/register.php">註冊帳號</a>
           <a class="forgotten_link" href="forgotten.php">忘記密碼</a>
@@ -74,11 +95,26 @@
       element1 = document.querySelector('.login__container');
       element1.classList.toggle('appear');
     }
+    
     const closebutton = document.querySelector('.closebutton');
     closebutton.addEventListener('click', disappear);
     function disappear() {
       element2 = document.querySelector('.login__container');
       element2.classList.toggle('appear');
+    }
+    
+    const errcode = '<?php if (!empty($_GET['err_code'])) {echo $_GET['err_code'];} ?>';
+    if (errcode === '1') {
+      element3 = document.querySelector('.login__container');
+      element3.classList.toggle('appear');
+      element4 = document.querySelector('.errcode__1');
+      element4.classList.toggle('appear');
+    }
+    if (errcode === '2') {
+      element5 = document.querySelector('.login__container');
+      element5.classList.toggle('appear');
+      element6 = document.querySelector('.errcode__2');
+      element6.classList.toggle('appear');
     }
   </script>
 </html>

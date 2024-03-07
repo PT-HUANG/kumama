@@ -35,8 +35,16 @@ body {
 	padding: 14px 19px;
 }
 
+.welcome {
+	color: white;
+}
+
 .header__nav__member {
 	background-color: rgba(6,147,227,1);
+}
+
+.header__nav__member > a:visited {
+	color: white;
 }
 
 .header__nav__cart {
@@ -172,6 +180,16 @@ body {
 	box-shadow:1px 1px 3px #92828291;
 }
 
+.errcode__1, .errcode__2 {
+	display: none;
+	position: absolute;
+	top: 30px;
+	left: 100px;
+	color: red;
+	font-weight: bold;
+	font-size: 22px;
+}
+
 .login__container__form div:nth-child(1) {
 	font-weight: bold;
 	font-size: 24px;
@@ -251,10 +269,10 @@ body {
 	padding: 30px;
 }
 
-.register__container h1 {
-	margin-top: 10px;
-	margin-left: 10px;
-	margin-bottom: 10px;
+.register__container__title {
+	font-size: 30px;
+	font-weight: bold;
+	margin: 0px 20px;
 }
 
 .register__container div {
@@ -288,4 +306,12 @@ body {
 	color: yellow;
 	font-weight: bold;
 	cursor: pointer;
+}
+
+.errcode {
+	display: inline-block;
+	top: 0px;
+	color: red;
+	font-size: 22px;
+	font-weight: bold;
 }
