@@ -45,7 +45,7 @@
               <a href="./about.php">關於我們</a>
             </li>
             <li>
-              <a href="./contact.php">聯絡我們</a>
+              <a href="../contact.php">聯絡我們</a>
             </li>
           </ul>
         </nav>
@@ -66,16 +66,16 @@
         ?>
         <form class="register__container__form" method="POST" action="./handle_register.php">
           <div>
-            暱稱: <input type="text" name="nickname" placeholder="請輸入您的暱稱..." />
+            暱稱: <input type="text" name="nickname" placeholder="請輸入您的暱稱..." required />
           </div>
           <div>
-            帳號: <input type="text" name="username" placeholder="請輸入您的帳號..." />
+            帳號: <input type="text" name="username" placeholder="請輸入您的帳號..." required />
           </div>
           <div>
-            密碼: <input type="password" name="password" placeholder="請輸入您的密碼..." />
+            密碼: <input type="password" name="password" placeholder="請輸入您的密碼..." required />
           </div>
           <div>
-            Email: <input type="email" name="adress" placeholder="請輸入您的電子郵件..." />
+            Email: <input type="email" name="adress" placeholder="請輸入您的電子郵件..." required />
           </div>
           <button type="submit" class="register_btn">送出</button>
         </form>

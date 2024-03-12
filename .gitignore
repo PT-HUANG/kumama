@@ -1,2 +1,5 @@
-#file to be igonred
+#files to be igonred
 conn.php
+vendor/
+composer.json
+composer.lock

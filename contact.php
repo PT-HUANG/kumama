@@ -74,26 +74,41 @@ if (!empty($_SESSION['username'])){
           <img src="./img/x.ico" />
         </div>
         <div class="errcode__1">錯誤：資料不齊全</div>
-        <div class="errcode__2">錯誤：帳號或密碼錯誤</div>
+        <div class="errcode__2">錯誤：帳號或密碼有誤</div>
         <form class="login__container__form" method="POST" action="./login/handle_login.php">  
           <div>登入</div> 
           <div>帳號</div>
-          <input type="text" name="username" required/>
+          <input type="text" name="username"/>
           <div>密碼</div>
-          <input type="password" name="password" required/><br>
+          <input type="password" name="password"/><br>
           <input type="submit" value="登入" class="sign_in_btn" />
           <a class="register_link" href="./register/register.php">註冊帳號</a>
           <a class="forgotten_link" href="forgotten.php">忘記密碼</a>
         </form>
       </div>
+      <div class="form__container">
+        <form class="contact_form" method="POST" action="./email/send_email.php">
+          <div>聯絡我們</div>
+          <div>你的全名</div>
+          <input type="text" name="name" class="name" required></input>
+          <div>你的電子郵件地址</div>
+          <input type="email" name="email" class="email" required></input>
+          <div>主旨</div>
+          <input type="text" name="subject" class="subject" required></input>
+          <div>內容</div>
+          <textarea name="message" placeholder="想說些什麼..." rows="5" class="message" required></textarea><br>
+          <button type="submit" class="sendbutton">送出</button>
+        </form>
+      </div>
     </main>
   </body>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script>
     const openbutton = document.querySelector('.header__nav__member > div');
     openbutton.addEventListener('click', show);
     function show() {
       element1 = document.querySelector('.login__container');
-      element1.classList.toggle('appear');
+       element1.classList.toggle('appear');
     }
     
     const closebutton = document.querySelector('.closebutton');
@@ -116,5 +131,16 @@ if (!empty($_SESSION['username'])){
       element6 = document.querySelector('.errcode__2');
       element6.classList.toggle('appear');
     }
+
+    const sendbutton = document.querySelector('.sendbutton');
+    sendbutton.addEventListener('click', function (){
+      const name = document.querySelector('.name');
+      const email = document.querySelector('.email');
+      const subject = document.querySelector('.subject');
+      const message = document.querySelector('.message');
+      if (name.value !== '' && email.value !== '' && subject.value !== '' && message.value !== ''){
+        swal("感謝您的來信詢問", "我們會盡快回復您", "success");
+      }
+    });
   </script>
 </html>

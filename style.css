@@ -119,10 +119,9 @@ body {
 }
 
 .logo {
-	padding-top: 8px;
-	padding-bottom: 0px;
-	padding-left: 90px;
-	padding-right: 90px;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	margin: auto;
 }
 
 .nav__bar__list {
@@ -169,7 +168,7 @@ body {
 	position: relative;
 	box-sizing: border-box;
 	margin: auto;
-	margin-top: 20px;
+	margin-top: 50px;
 	background-color: white;
 	width: 400px;
 	height: 300px;
@@ -314,4 +313,51 @@ body {
 	color: red;
 	font-size: 22px;
 	font-weight: bold;
+}
+
+.form__container {
+	display: inline-block;
+	box-sizing: border-box;
+	background-color: white;
+	margin: 50px auto;
+	border-radius: 5px;
+	padding: 40px 50px;
+	width: 550px;
+	height: 600px;
+}
+
+.contact_form div:nth-child(1) {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.contact_form div:nth-child(2n) {
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+
+.contact_form input:nth-child(2n+1) {
+	width: 425px;
+	height: 20px;
+	padding: 5px 5px;
+}
+
+.contact_form > textarea {
+	width: 433px;
+	margin-bottom: 20px;
+}
+
+.contact_form > button {
+	background-color: #333333db;
+	color: white;
+	font-size: 18px;
+	font-weight: bold;
+	border: none;
+	border-radius: 3px;
+	width: 440px;
+	height: 40px;
+}
+
+.contact_form > button:hover {
+	cursor: pointer;
 }

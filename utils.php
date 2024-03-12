@@ -1,5 +1,5 @@
 <?php		
-	function GetNicknameFromUsername ($username) {
+	function GetInfoFromUsername ($username) {
 		global $conn;
 		$sql = "SELECT * from users where username = ?";
 		$stmt = $conn->prepare($sql);
@@ -9,5 +9,9 @@
 		$row = $result->fetch_assoc();
 		return $row;
 	}
+
+	function escape($str) {
+    	return htmlspecialchars($str, ENT_QUOTES);
+  	}
 ?>
 
